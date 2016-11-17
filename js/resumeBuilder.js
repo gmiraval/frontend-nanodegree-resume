@@ -109,24 +109,42 @@ var projects = {
  $("#header").append(HTMLheaderRole.replace("%data%",bio.role));
  
 
-$("#footerContacts").append(HTMLmobile.replace("%data%",bio.contacts.mobile));
-$("#footerContacts").append(HTMLemail.replace("%data%",bio.contacts.email));
-$("#footerContacts").append(HTMLtwitter.replace("%data%",bio.contacts.twitter));
-$("#footerContacts").append(HTMLgithub.replace("%data%",bio.contacts.github));
-$("#footerContacts").append(HTMLlocation.replace("%data%",bio.contacts.location));
+$("#topContacts").append(HTMLmobile.replace("%data%",bio.contacts.mobile));
+$("#topContacts").append(HTMLemail.replace("%data%",bio.contacts.email));
+$("#topContacts").append(HTMLtwitter.replace("%data%",bio.contacts.twitter));
+$("#topContacts").append(HTMLgithub.replace("%data%",bio.contacts.github));
+$("#topContacts").append(HTMLlocation.replace("%data%",bio.contacts.location));
 
-$("#main").append(HTMLbioPic.replace("%data%",bio.bioPic));
+$("#header").append(HTMLbioPic.replace("%data%",bio.bioPic));
 
 // si hay skills imprimo-ToDo: meter un loop
 
 if (bio.skills.length > 0) {
 	$("#header").append(HTMLskillsStart);
-
-	
+	//$("#skills").append(HTMLskills.replace("%data%", bio.skills.join('\t')));
 	$("#skills").append(HTMLskills.replace("%data%", bio.skills[0]));
 	$("#skills").append(HTMLskills.replace("%data%", bio.skills[1]));
 	$("#skills").append(HTMLskills.replace("%data%", bio.skills[2]));
 	$("#skills").append(HTMLskills.replace("%data%", bio.skills[3]));
 }
+
+
+for (job in work.jobs) {
+	$("#workExperience").append(HTMLworkStart);
+	var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+	var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+	var formattedEmployerTitle = formattedEmployer + formattedTitle;
+	$(".work-entry:last").append(formattedEmployerTitle);
+	
+	var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+	$(".work-entry:last").append(formattedDates);
+
+	var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+	$(".work-entry:last").append(formattedDescription);;
+	
+}
+
+
+
 
 
