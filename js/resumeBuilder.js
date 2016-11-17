@@ -17,34 +17,30 @@ This is empty on purpose! Your code to build the resume will go here.
  $("#main").append(funThoughts); */
  
  
- // var formattedName = HTMLheaderName.replace("%data%","Guillermo Miravalles");
- // var formattedRole = HTMLheaderRole.replace("%data%","Engineer");
+ //var formattedName = HTMLheaderName.replace("%data%","Guillermo Miravalles");
+ var formattedRole = HTMLheaderRole.replace("%data%","Engineer");
  
-/*  $("#header").append(formattedName);
- $("#header").append(formattedRole); */
- 
- // $("#header").prepend(formattedRole);
- // $("#header").prepend(formattedName);
+
+
  
  var bio = {
-	"name": "Guillermo",
-	"role":	"eng",
+	"name": "Guillermo Miravalles",
+	"role":	"Engineer",
 	"contacts": {
 		
-		"mobile": "+54 9 11 21801208",
-		"email":"miravallesg@gmail.com",
+		"mobile" : "+54 9 11 21801208",
+		"email" : "miravallesg@gmail.com",
 		"github":"gmiraval",
 		"twitter":"@gmiraval",
 		"location" : "BA"
 	},
 	
-	"welcome message" : " Bienvenidos a mi pagina!",	 
-	"skills" : ["grosso", "genio", "capo"],
+	"welcomeMsg" : " Bienvenidos a mi pagina!",	 
+	"skills" : [
+		"HTML5", "CSS", "JavaScript", "Adobe Creative Suite"
+		],
 	"bioPic" : "images/Bart.jpg"
  };
- 
-// $("#main").append(bio.name);
-// $("#main").append(bio["role"]);
 
 var education = {
 	"schools" : [
@@ -74,7 +70,7 @@ var education = {
 		}
 	]
 }
- 
+  
 var work = {
 	"jobs": [
 	{
@@ -106,3 +102,31 @@ var projects = {
 	}
 	]
 }
+
+//imprimo
+
+ $("#header").append(HTMLheaderName.replace("%data%",bio.name));
+ $("#header").append(HTMLheaderRole.replace("%data%",bio.role));
+ 
+
+$("#footerContacts").append(HTMLmobile.replace("%data%",bio.contacts.mobile));
+$("#footerContacts").append(HTMLemail.replace("%data%",bio.contacts.email));
+$("#footerContacts").append(HTMLtwitter.replace("%data%",bio.contacts.twitter));
+$("#footerContacts").append(HTMLgithub.replace("%data%",bio.contacts.github));
+$("#footerContacts").append(HTMLlocation.replace("%data%",bio.contacts.location));
+
+$("#main").append(HTMLbioPic.replace("%data%",bio.bioPic));
+
+// si hay skills imprimo-ToDo: meter un loop
+
+if (bio.skills.length > 0) {
+	$("#header").append(HTMLskillsStart);
+
+	
+	$("#skills").append(HTMLskills.replace("%data%", bio.skills[0]));
+	$("#skills").append(HTMLskills.replace("%data%", bio.skills[1]));
+	$("#skills").append(HTMLskills.replace("%data%", bio.skills[2]));
+	$("#skills").append(HTMLskills.replace("%data%", bio.skills[3]));
+}
+
+
