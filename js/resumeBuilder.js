@@ -105,6 +105,8 @@ var projects = {
 
 //imprimo
 
+
+
  $("#header").append(HTMLheaderName.replace("%data%",bio.name));
  $("#header").append(HTMLheaderRole.replace("%data%",bio.role));
  
@@ -128,7 +130,8 @@ if (bio.skills.length > 0) {
 	$("#skills").append(HTMLskills.replace("%data%", bio.skills[3]));
 }
 
-
+function displaywork ()
+{
 for (job in work.jobs) {
 	$("#workExperience").append(HTMLworkStart);
 	var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
@@ -144,7 +147,7 @@ for (job in work.jobs) {
 	
 }
 
+}
 
-
-
-
+//llamo a la funcion
+displaywork();
