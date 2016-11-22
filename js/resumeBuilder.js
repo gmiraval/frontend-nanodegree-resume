@@ -132,6 +132,9 @@ if (bio.skills.length > 0) {
 	$("#skills").append(HTMLskills.replace("%data%", bio.skills[3]));
 }
 
+
+
+
 function displaywork ()
 {
 for (job in work.jobs) {
@@ -167,3 +170,21 @@ function locationizer(work_obj) {
 //llamo a la funcion y lo mando a consola
 
 console.log(locationizer(work));
+
+
+//internationalize button
+
+$("#main").append(internationalizeButton);
+
+
+//internationalize name-usa funcion en helper.js-todo hardcoded -un horror :)
+function inName(name) {
+    console.log(name)
+    var firstLast = name.trim().split(" ");
+    console.log(firstLast)
+    firstLast[0] = firstLast[0][0].toUpperCase()+firstLast[0].slice(1).toLowerCase();
+    firstLast[1] = firstLast[1].toUpperCase();
+    return firstLast[0]+" "+firstLast[1];
+}
+
+
