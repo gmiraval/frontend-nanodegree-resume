@@ -76,12 +76,14 @@ var work = {
 	{
 		"employer":"planet express",
 		"title": "delivery boy",
+		"location": "Nashville, TN",
 		"dates": "jan 3000 - future",
 		"description": "reparto de papas"
 	},
 		{
 		"employer":"tintoreria tito",
 		"title": "planchador",
+		"location": "Seattle, WA",
 		"dates": "jan 1998 - dec 31, 1999",
 		"description": "alisado de telas"
 	}
@@ -151,3 +153,17 @@ for (job in work.jobs) {
 
 //llamo a la funcion
 displaywork();
+
+
+//funcion locationer
+function locationizer(work_obj) {
+  var a = []; // We create an empty array;
+  for (var item in work_obj.jobs) { // We want to go through all jobs we have had;
+    a.push(work_obj.jobs[item].location); // We collect "location" for each job and add it to the array;
+  }
+  return a; // Our function returns the value of the array; alternatively, we could use console.log to print the array in the console
+}
+
+//llamo a la funcion y lo mando a consola
+
+console.log(locationizer(work));
