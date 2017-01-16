@@ -91,19 +91,32 @@ var work = {
 };
 
 var projects = {
-	"projects" : [
-	{
-		"title": "Sample Project 1",
-		"dates": "2014",
-		"description": "zarazas sdffsdf detritus.",
-		"images" : [
-		"https://en.wikipedia.org/wiki/Bart_Simpson#/media/File:Bart_Simpson_200px.png",
-		"http://bartsimpsonpictures.squarelogic.net/bart-simpson-01.gif"
-		
-		]		
-	}
-	]
-}
+    "projects": [{
+        "title": "Traffic Pattern Analysis",
+        "dates": "2015",
+        "description": 'Intercepting and examining daily traffic data and usage rates to detrmine optimal ' +
+            'network capabilities.',
+        "images": ['https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTc7EWpTKu3N49ViH0hjGXbGAPuZjtX8G' +
+            '-KeNQIiEEM3jCD7aapAQ',
+            'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQksj2YMfvj3U4-yxrkZJogBaLSkX3mfR' +
+            '9wYPjZ0ditoq2yEAIVqQ',
+            'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQMMukaROu6fNt1FwsHhu3_DPWohOvE9k' +
+            'p9OcFWdSWcYKO_1MM46g',
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVQh77qBUQgw5Mx8NFM3DsCWYKX_2Wxe' +
+            'miQs5HSqm63FB5UbKm'
+        ]
+    }, {
+        "title": "Portfolio",
+        "dates": "2015",
+        "description": 'My online portfolio provides a way to reveal my credentials to the world. It allows ' +
+            'packages the best evidence of my candidacy for employment such as my resume, ' +
+            'design work, artwork, reports, lesson plans, transcripts, certifications, articles, ' +
+            'letters, and more in a form easily accessible via the Internet. It is a good way to ' +
+            'show the scope and quality of my experience and training, and to demonstrate my ' +
+            'talent and my ability to produce high-quality work in Web Development.',
+        "images": ['https://images.pexels.com/photos/48727/pexels-photo-48727.jpeg?h=350&auto=compress&cs=tinysrgb']
+    }]
+};
 
 //imprimo
 
@@ -123,6 +136,9 @@ $("#header").append(HTMLbioPic.replace("%data%",bio.bioPic));
 
 // si hay skills imprimo-ToDo: meter un loop
 
+
+
+
 if (bio.skills.length > 0) {
 	$("#header").append(HTMLskillsStart);
 	//$("#skills").append(HTMLskills.replace("%data%", bio.skills.join('\t')));
@@ -131,6 +147,8 @@ if (bio.skills.length > 0) {
 	$("#skills").append(HTMLskills.replace("%data%", bio.skills[2]));
 	$("#skills").append(HTMLskills.replace("%data%", bio.skills[3]));
 }
+
+
 
 
 
@@ -187,4 +205,33 @@ function inName(name) {
     return firstLast[0]+" "+firstLast[1];
 }
 
+//projects.display function
+
+projects.display = function() {
+    var data = '%data%';
+
+    for (var i = 0; i < projects.projects.length; i++) {
+        // create new div for work experience
+        $("#projects").append(HTMLprojectStart);
+
+        var formattedProjTitle = HTMLprojectTitle.replace(data, projects.projects[i].title);
+        $(".project-entry:last").append(formattedProjTitle);
+
+        var formattedProjDates = HTMLprojectDates.replace(data, projects.projects[i].dates);
+        $(".project-entry:last").append(formattedProjDates);
+
+        var formattedProjDescription = HTMLprojectDescription.replace(data, projects.projects[i].description);
+        $(".project-entry:last").append(formattedProjDescription);
+
+        if (projects.projects[i].images.length > 0) {
+            for (var p = 0; p < projects.projects[i].images.length; p++) {
+                var formattedProjImage = HTMLprojectImage.replace(data, projects.projects[i].images[p]);
+                $(".project-entry:last").append(formattedProjImage);
+            }
+        }
+    }
+};
+
+//...y llamo la funcion
+projects.display();
 
