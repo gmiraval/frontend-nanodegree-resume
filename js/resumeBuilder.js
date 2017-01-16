@@ -32,7 +32,7 @@ This is empty on purpose! Your code to build the resume will go here.
 		"email" : "miravallesg@gmail.com",
 		"github":"gmiraval",
 		"twitter":"@gmiraval",
-		"location" : "BA"
+		"location" : "Buenos Aires, AR"
 	},
 	
 	"welcomeMsg" : " Bienvenidos a mi pagina!",	 
@@ -50,7 +50,8 @@ var education = {
 			"degree":"secundario",
 			"majors":"none",
 			"dates":1993,
-			"url":"http://www.epet1.edu.ar/"
+			"url":"http://www.epet1.edu.ar/",
+			"location" : "Posadas, AR"
 		},
 				{
 			"name": "UNLP",
@@ -58,7 +59,8 @@ var education = {
 			"degree":"ing electronica",
 			"majors":"Telecom",
 			"dates":1999,
-			"url":"https://www.ing.unlp.edu.ar/"
+			"url":"https://www.ing.unlp.edu.ar/",
+			"location" : "La Plata, AR"
 		}		
 	],
 	"onlineCourses" : [
@@ -235,3 +237,7 @@ projects.display = function() {
 //...y llamo la funcion
 projects.display();
 
+
+//you want to see a map? here's a map.
+
+$("#mapDiv").append(googleMap);
